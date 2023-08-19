@@ -10,8 +10,39 @@
   --text-color: hsla(var(--hue), 40%, 98%);
   --primary-color: hsla(var(--hue), 100%, 63%);
   --controls-bg-color: hsla(var(--hue), 0%, 14%);
+  --button-secondary: hsla(var(--hue), 40%, 98%);
 
   font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+html.light {
+  --bg-color: hsla(var(--hue), 40%, 98%);
+  --text-color: hsl(var(--hue), 5%, 7%);
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+  display: none;
+}
+
+#toggle-mode {
+  position: absolute;
+  right: 3.2rem;
+  top: 3.2rem;
+  font-size: 3.2rem;
+  line-height: 0;
+
+  color: var(--text-color);
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  appearance: none;
 }
 
 body {
@@ -46,7 +77,7 @@ body {
   border-radius: 999rem;
 }
 
-button{
+button {
   background-color: transparent;
   border: 0;
   color: var(--primary-color);
@@ -56,6 +87,15 @@ button{
   font-size: 6.4rem;
 }
 
-.secondary{
-  color: var(--text-color);
+.secondary {
+  color: var(--button-secondary);
+}
+
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle,
+html:not(.music-on) .ph-speaker-high {
+  display: none;
 }
